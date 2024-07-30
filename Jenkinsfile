@@ -1,6 +1,13 @@
 pipeline {
   agent any
-  stages {
+   stage('Checkout from Git'){
+            steps{
+                git branch: 'main', credentialsId: 'devops', url: 'https://github.com/vishnuabntechcorp/docker.git'
+            }
+        }
+  
+  stages 
+  {
     stage("verify tooling") {
       steps {
         sh '''
